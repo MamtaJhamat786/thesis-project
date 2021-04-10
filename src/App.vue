@@ -1,10 +1,27 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <Navbar />
   </div>
   <router-view/>
 </template>
+
+<script>
+import Navbar from './components/Navigation/Navbar.vue';
+export default {
+  components: {
+    Navbar
+  },
+  created() {
+    this.$store.dispatch('auth/tryLogin');
+    this.$store.dispatch('getAllGroups');
+    this.$store.dispatch('getAllEvents');
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      this.$store.dispatch('getAllJoinedGroups');
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -15,16 +32,4 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
