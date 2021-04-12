@@ -42,8 +42,11 @@
         </div>
       </div>
     </div>
-    <div v-else>
+    <div v-else-if="isSuccess">
       <h2>You are logged in</h2>
+    </div>
+    <div v-else-if="isBoth">
+      <h2>Loading........</h2>
     </div>
   </div>
 </template>
@@ -56,6 +59,7 @@ export default {
     return {
       email: "",
       showAskForMail: false,
+      isSuccess: false
     };
   },
 
@@ -64,6 +68,7 @@ export default {
     const email = localStorage.getItem("emailForSignIn");
     if (auth.isSignInWithEmailLink(url) && email) {
       this.$store.dispatch("auth/auth", { url, email });
+      this.isSuccess = true
      
     } else {
       this.showAskForMail = true;
@@ -78,7 +83,14 @@ export default {
       auth.signInWithEmailLink(this.email, location.href);
     },
     Okay(){
-      // this.showAskForMail = false;
+      this.showAskForMail = false;
+      this.isSuccess = false
+    },
+
+    isBoth(){
+      if (!this.showAskForMail && !this.isSuccess) {
+        return true
+      } else return false
     }
   },
 };

@@ -1,6 +1,6 @@
 <template>
   <div class="b-row d-lg-flex">
-    <div class="col-lg-8 mt-2">
+    <div class="col-lg-8 mt-4">
       <form class="d-flex">
         <input
           class="form-control me-2"
@@ -11,7 +11,7 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
-    <div class="col-lg-4 mt-2">
+    <div class="col-lg-4 mt-4">
       <button
         type="button"
         class="btn btn-primary ms-2"
@@ -74,6 +74,8 @@
 </template>
 
 <script>
+import { firestoredb, timestamp } from '../../../firebase';
+
 export default {
   name: "Nav",
   props: {
@@ -92,11 +94,16 @@ export default {
   },
   methods: {
     createGroup() {
+      const createdAt = timestamp();
       this.$store.dispatch("addGroup", {
         name: this.form.groupTitle,
         desc: this.form.groupDesc,
       });
-      this.axios
+      firestoredb.collection("rooms").add({
+        name: this.form.groupTitle,
+        createdAt
+      })
+   this.axios
         .post(
           "https://connectin-5556b-default-rtdb.firebaseio.com/groups.json",
           {

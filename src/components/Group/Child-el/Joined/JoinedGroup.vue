@@ -32,11 +32,6 @@ export default {
             Object.keys(this.groupUsers).forEach((element) => {
               console.log(element);
             });
-
-            //      if (e.val().userId === userId)
-            //                 database.ref('groups/' + element.key + '/groupUsers/' + Object.keys() + '/userId').remove().catch(err => console.log(err))
-            //                 console.log(element.key + ' ' + e.key)
-            //         })
           }
         });
       });

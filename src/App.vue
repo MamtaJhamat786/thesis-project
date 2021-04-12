@@ -1,8 +1,10 @@
 <template>
+<div>
   <div id="nav">
     <Navbar />
   </div>
   <router-view/>
+  </div>
 </template>
 
 <script>
@@ -24,6 +26,14 @@ export default {
 </script>
 
 <style lang="scss">
+:root {
+  --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --msger-bg: #fff;
+  --border: 2px solid #ddd;
+  --left-msg-bg: #ececec;
+  --right-msg-bg: #579ffb;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

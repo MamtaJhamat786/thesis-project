@@ -16,7 +16,8 @@
           @click="joinGroup()"
         > Join group
         </button>
-        <button type="button" class="btn btn-success ms-1 mt-2">Chat</button>
+       
+        <button type="button" class="btn btn-success ms-1 mt-2" @click="goToChat">Chat</button>
       </div>
     </div>
   </div>
@@ -83,6 +84,9 @@ export default {
         });
       }
     },
+    goToChat(){ 
+      this.$router.push(`/chat/${this.title}`);
+    }
   },
 };
 </script>

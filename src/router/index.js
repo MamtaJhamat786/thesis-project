@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Groups from '../views/Groups.vue'
 import Events from '../views/Events.vue';
 import Login from '../views/Login.vue';
+import Chat from '../views/Chat.vue';
 
 import store from '../store/index.js'
 
@@ -11,6 +12,14 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/chat/:groupName',
+    name: 'Chat',
+    component: Chat,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/groups',
