@@ -1,7 +1,7 @@
 <template>
   <div class="b-row d-lg-flex">
     <div class="col-lg-8 mt-4">
-      <form class="d-flex">
+      <!-- <form class="d-flex">
         <input
           class="form-control me-2"
           type="search"
@@ -9,19 +9,19 @@
           aria-label="Search"
         />
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      </form> -->
     </div>
     <div class="col-lg-4 mt-4">
       <button
         type="button"
-        class="btn btn-primary ms-2"
+        class="btn btn-primary ms-2 btn-color"
         @click="!joined ? $emit('joined') : $emit('main')"
       >
        {{joined ? 'Groups' : 'Joined Groups'}}
       </button>
       <button
-        type="button"
-        class="btn btn-primary ms-2"
+        type="button "
+        class="btn btn-primary ms-2 btn-color"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
@@ -98,6 +98,7 @@ export default {
       this.$store.dispatch("addGroup", {
         name: this.form.groupTitle,
         desc: this.form.groupDesc,
+        users: {}
       });
       firestoredb.collection("rooms").add({
         name: this.form.groupTitle,
@@ -129,4 +130,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.btn-color{
+    color: black;
+    background-color: #EC4F70;
+}</style>

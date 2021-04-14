@@ -106,4 +106,7 @@ export default {
 .form {
   width: 100%;
 }
+.back-color{
+  background-color: rgb(205, 222, 241);
+}
 </style>

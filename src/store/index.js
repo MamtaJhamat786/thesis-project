@@ -105,7 +105,6 @@ export default createStore({
       const userId = localStorage.getItem("userId");
       const allJoined = await database.ref("users/" + userId).get();
       const allGroups = allJoined.val().groups;
-
       const res = [];
       for (const id in allGroups) {
       const group = await database.ref('groups/' + allGroups[id].id).get()

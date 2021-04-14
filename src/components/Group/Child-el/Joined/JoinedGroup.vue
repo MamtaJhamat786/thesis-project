@@ -3,6 +3,7 @@
     <h5>{{ groupName }}</h5>
     <p>{{ groupDesc }}</p>
     <button class="btn btn-danger" @click="leave">Leave</button>
+    <button type="button" class="btn btn-info ms-3" @click="goToChat">Go To Chat</button>
   </li>
 </template>
 
@@ -19,24 +20,36 @@ export default {
     groupUsers: Object,
   },
   methods: {
-    leave() {
+   async leave() {
       const userId = localStorage.getItem("userId");
+      const groupId = await database
+        .ref("users/" + userId + "/groups")
+        .child(this.masterId)
+        .once("value")
+
       database
         .ref("users/" + userId + "/groups")
         .child(this.masterId)
         .remove()
         .catch((err) => console.log(err));
-      database.ref("groups").once("value", (snap) => {
-        snap.forEach((element) => {
-          if (element.val().groupUsers) {
-            Object.keys(this.groupUsers).forEach((element) => {
-              console.log(element);
-            });
-          }
-        });
-      });
-      this.$store.dispatch("deleteJoinedGroup", this.idx);
+      
+     const groupUsers = await database
+        .ref("groups/" + groupId.val().id + "/groupUsers").once("value")
+
+    groupUsers.forEach(element => {
+      const usrId = element.val().userId;
+      if(usrId === userId) {
+       database
+        .ref("groups/" + groupId.val().id + "/groupUsers").child(element.key).remove().catch((err) => console.log(err));
+      }
+    });
+
+     this.$store.dispatch("deleteJoinedGroup", this.idx);
     },
+    goToChat(){
+      this.$router.push(`/chat/${this.groupName}`);
+
+    }
   },
 };
 </script>

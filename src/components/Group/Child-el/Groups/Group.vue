@@ -6,18 +6,13 @@
         <p class="card-text">
           {{ description }}
         </p>
-        <span v-if="Object.keys(users).length > 0">{{
-          Object.keys(users).length
-        }}</span>
         <button
           type="button"
-          class="btn mt-2"
-          :class="value ? 'btn-success' : 'btn-primary'"
-          @click="joinGroup()"
-        > Join group
+          class="btn btn-info mt-2"
+          :disabled="value"
+          @click="joinGroup(), value = true"
+        > {{ value ? 'Joined' : 'Join Group' }}
         </button>
-       
-        <button type="button" class="btn btn-success ms-1 mt-2" @click="goToChat">Chat</button>
       </div>
     </div>
   </div>
@@ -75,7 +70,6 @@ export default {
     inGroup() {
       const userId = localStorage.getItem("userId");
       const array = this.users;
-
       if (Object.keys(array).length > 0) {
         Object.values(array).forEach((element) => {
           if (element.userId === userId) {
