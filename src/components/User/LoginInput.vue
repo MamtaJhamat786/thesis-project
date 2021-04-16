@@ -1,7 +1,7 @@
 <template>
-  <div class="border border-secondary p-5">
-    <div v-if="showAskForMail">
-      <h2 class="mb-5">Log In</h2>
+  <div class="border border-secondary p-5 back-color">
+    <div v-if="showAskForMail" class="card-style">
+      <h2 class="mb-5">LOG IN</h2>
       <input
         type="email"
         class="form-control mb-4"
@@ -96,4 +96,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+/* .card-style{
+  width: 200px;
+  height: 200px;
+ margin-left: 3rem;
+} */
+.back-color{
+  background-color:rgb(205, 222, 241);
+}
+</style>

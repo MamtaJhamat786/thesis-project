@@ -1,6 +1,5 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-  <!-- <div class="container"> -->
     <router-link class="navbar-brand me-5" to="/">
     <img :src="image" class="logo"/>
     </router-link>
@@ -20,7 +19,6 @@
           <router-link v-else class="btn login-btn rounded-pill me-5" role="button" to="/login">Log In</router-link>
       </div>
     </div>
-  <!-- </div> -->
 </nav>
 </template>
 

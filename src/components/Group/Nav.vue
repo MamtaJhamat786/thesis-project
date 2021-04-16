@@ -1,15 +1,7 @@
 <template>
   <div class="b-row d-lg-flex">
     <div class="col-lg-8 mt-4">
-      <!-- <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form> -->
+  
     </div>
     <div class="col-lg-4 mt-4">
       <button

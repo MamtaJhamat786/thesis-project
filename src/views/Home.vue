@@ -12,6 +12,13 @@
 <script>
 export default {
   name: "Home",
+  data(){
+    return{
+      loggedin: false
+
+    }
+
+  },
   components: {},
   methods:{
     Join(){
