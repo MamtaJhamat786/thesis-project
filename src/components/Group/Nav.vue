@@ -6,19 +6,24 @@
     <div class="col-lg-4 mt-4">
       <button
         type="button"
+        name="joinedgroups"
         class="btn btn-primary ms-2 btn-color"
         @click="!joined ? $emit('joined') : $emit('main')"
       >
        {{joined ? 'Groups' : 'Joined Groups'}}
       </button>
+
       <button
-        type="button "
+        type="button"
         class="btn btn-primary ms-2 btn-color"
+        name="creategroup"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
+        id="creategroup"
       >
         Create Group
       </button>
+
       <div
         class="modal fade"
         id="exampleModal"
@@ -35,6 +40,7 @@
                 class="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                name="close"
               ></button>
             </div>
             <div class="modal-body">
@@ -42,6 +48,7 @@
                 <input
                   class="form-control"
                   type="text"
+                  id="name"
                   placeholder="Group name"
                   aria-label="default input example"
                   v-model="form.groupTitle"
@@ -55,7 +62,7 @@
                   v-model="form.groupDesc"
                 ></textarea>
 
-                <button type="submit" class="btn btn-success mt-3" id="saveButton">Save</button>
+                <button type="submit" class="btn btn-success mt-3" name="save" id="saveButton">Save</button>
               </form>
             </div>
           </div>

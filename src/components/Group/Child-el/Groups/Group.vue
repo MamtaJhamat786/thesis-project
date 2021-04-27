@@ -10,6 +10,7 @@
           type="button"
           class="btn btn-info mt-2"
           :disabled="value"
+          name="joinGroup"
           @click="joinGroup(), value = true"
         > {{ value ? 'Joined' : 'Join Group' }}
         </button>

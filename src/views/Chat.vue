@@ -1,5 +1,13 @@
 <template>
   <div class="container mt-10">
+    <div>
+      <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <div class="col">
+      <button type="button" class="btn btn-dark mb-3 place-left" @click="goToGroups">Go back</button>
+    </div>
+      
+    </div>
+    </div>
     <div class="card text-center">
       <div class="card-header">{{ this.$route.params.groupName }}</div>
       <div class="card-body">
@@ -24,7 +32,7 @@
               placeholder="Enter message"
             />
           </form>
-          <button type="submit" class="btn btn-primary ms-3" @click="sendMessage">send</button>
+          <button type="submit" class="btn btn-primary ms-3"  name="send" @click="sendMessage">send</button>
         </div>
       </div>
     </div>
@@ -55,7 +63,7 @@ export default {
           snap.forEach(doc => {
             documents.push({ ...doc.data(), id: doc.id });
           });
-          
+
           if (documents.length) {
             this.roomId = documents[0].id;
             firestoredb
@@ -92,8 +100,11 @@ export default {
             timestamp: timestamp()
           });
 
-          this.message = ""
+        this.message = "";
       }
+    },
+    goToGroups(){
+      this.$router.push('/groups');
     }
   }
 };
@@ -106,7 +117,10 @@ export default {
 .form {
   width: 100%;
 }
-.back-color{
+.back-color {
   background-color: rgb(205, 222, 241);
+}
+.place-left {
+  align-content: flex-start;
 }
 </style>

@@ -6,6 +6,7 @@
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
         @click="showModal = true"
+        name="createevent"
       >
         Create an event!
       </button>
@@ -20,7 +21,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Create Group</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
             <button
               type="button"
               class="btn-close"

@@ -4,13 +4,14 @@
       <h2 class="mb-5">LOG IN</h2>
       <input
         type="email"
+        id="email"
         class="form-control mb-4"
         placeholder="Your  email"
         aria-label="Username"
         aria-describedby="addon-wrapping"
         v-model="email"
       />
-      <button class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" @click="login()">Let's start</button>
+      <button class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="letsstart" @click="login()">Let's start</button>
       <div
         class="modal fade"
         id="staticBackdrop"
@@ -35,7 +36,7 @@
               <h4>Check {{ email }} mailbox, you have there authentication link.</h4>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" @click="Okay">OK</button>
+              <button type="button" class="btn btn-primary" id="okay" @click="Okay">OK</button>
         
             </div>
           </div>

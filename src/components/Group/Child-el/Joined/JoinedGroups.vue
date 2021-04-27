@@ -2,7 +2,7 @@
  <div>
    <h2 class="mt-3">Joined Groups</h2>
    <div class="container">
-  <div class="card mt-4">
+  <div class="border">
     <ul class="list-group">
       <JoinedGroup v-for="(group, index) in allJoinedGroups" :key="index" :id="group.id" :masterId="group.masterId" :idx="index" :groupDesc="group.groupDesc" :groupName="group.groupName" :groupUsers="group.groupUsers"/>
     </ul>

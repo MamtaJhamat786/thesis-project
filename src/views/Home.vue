@@ -4,7 +4,7 @@
       <p class="intro-text">
         Connect with University People and solve your problems
       </p>
-      <button class="btn rounded-pill btn-lg" @click="Join">Join Now!</button>
+      <button class="btn rounded-pill btn-lg" id="button" name="login" @click="Join">Join Now!</button>
     </div>
   </div>
 </template>

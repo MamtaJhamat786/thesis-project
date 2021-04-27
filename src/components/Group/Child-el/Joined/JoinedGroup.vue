@@ -2,8 +2,8 @@
   <li class="list-group-item">
     <h5>{{ groupName }}</h5>
     <p>{{ groupDesc }}</p>
-    <button class="btn btn-danger" @click="leave">Leave</button>
-    <button type="button" class="btn btn-info ms-3" @click="goToChat">Go To Chat</button>
+    <button class="btn btn-danger" name="leave" @click="leave">Leave</button>
+    <button type="button" class="btn btn-info ms-3" name="gotochat" @click="goToChat">Go To Chat</button>
   </li>
 </template>
 

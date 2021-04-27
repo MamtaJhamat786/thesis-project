@@ -4,6 +4,7 @@ import Groups from '../views/Groups.vue'
 import Events from '../views/Events.vue';
 import Login from '../views/Login.vue';
 import Chat from '../views/Chat.vue';
+import JoinedGroup from '../components/Group/Child-el/Joined/JoinedGroup'
 
 import store from '../store/index.js'
 
@@ -25,6 +26,14 @@ const routes = [
     path: '/groups',
     name: 'Groups',
     component: Groups,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/joinedgroups',
+    name: 'JoinedGroup',
+    component: JoinedGroup,
     meta: {
       requiresAuth: true
     }

@@ -9,14 +9,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-md-5" v-if="isAuth">
-        <router-link class="nav-link ms-lg-5" to="/">Home</router-link>
-        <router-link class="nav-link ms-lg-5" to="/groups">Groups</router-link>
-        <router-link class="nav-link ms-lg-5" to="/events">Events</router-link>
-        <router-link class="nav-link ms-lg-5" to="/about">About us</router-link>
+        <router-link class="nav-link ms-lg-5" name="home" to="/">Home</router-link>
+        <router-link class="nav-link ms-lg-5" name="allgroups" to="/groups">Groups</router-link>
+        <router-link class="nav-link ms-lg-5" name="events" to="/events">Events</router-link>
+        <router-link class="nav-link ms-lg-5" name="about" to="/about">About us</router-link>
       </div>
       <div class="navbar-nav ms-auto">
-          <button v-if="isAuth" class="btn login-btn rounded-pill me-5" @click="logout()">Log out</button>
-          <router-link v-else class="btn login-btn rounded-pill me-5" role="button" to="/login">Log In</router-link>
+          <button v-if="isAuth" class="btn login-btn rounded-pill me-5" id="logout" @click="logout()">Log out</button>
+          <router-link v-else class="btn login-btn rounded-pill me-5" id="login" role="button" to="/login">Log In</router-link>
       </div>
     </div>
 </nav>
